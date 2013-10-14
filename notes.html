@@ -1,0 +1,24 @@
+
+//Once we loaded our data, we made a plan for what we wanted to graph
+
+now <- subset(data, Year == 2013 & Month == 7)
+
+cities <- c("New York-Northern New Jersey-Long Island, NY-NJ-PA MSA", "Los Angeles-Long Beach-Santa Ana, CA MSA", "Chicago-Joliet-Naperville, IL-IN-WI MSA", "Dallas-Fort Worth-Arlington, TX MSA", "Houston-Sugar Land-Baytown, TX MSA", "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD MSA", "Washington-Arlington-Alexandria, DC-VA-MD-WV MSA", "Miami-Fort Lauderdale-Pompano Beach, FL MSA", "Atlanta-Sandy Springs-Marietta, GA MSA", "Boston-Cambridge-Quincy, MA-NH Met NECTA", "San Francisco-Oakland-Fremont, CA MSA")
+
+now2 <- subset(now, Area%in%cities)
+
+now2 <- now2[order(now2$Unemployment.Rate, decreasing=T),]
+
+//view "now2" to get the order of cities so we can lable them in the our plot
+
+barplot(now2$Unemployment.Rate, col="orange", main="Current Unemployment in Largest US Metro Areas", ylab="Unemployment Rate (%)", ylim=c(0, 8), names.arg=c("CHI", "LAX", "ATL", "PHI", "NYC", "MIA", "BOS", "SFO", "DAL", "HOU", "WSH"), cex.names=0.6)
+
+then <- subset(data, Year == 2007 & Month == 7)
+
+then2 <- subset(then, Area%in%cities)
+
+then2 <- then2[order(then2$Unemployment.Rate, decreasing=T),]
+
+//view "then2" to get the order of cities so we can lable them in the our plot
+
+barplot(then2$Unemployment.Rate, col="green", main="Unemployment in Largest US Metro Areas in 2007", ylab="Unemployment Rate (%)", ylim=c(0, 8), names.arg=c("CHI", "LAX", "ATL", "NYC", "SFO", "PHI", "DAL", "HOU", "BOS", "MIA", "WSH"), cex.names=0.6)
