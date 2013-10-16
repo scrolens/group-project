@@ -21,4 +21,4 @@ then2 <- then2[order(then2$Unemployment.Rate, decreasing=T),]
 
 # view "then2" to get the order of cities so we can lable them in the our plot
 
-barplot(then2$Unemployment.Rate, col="green", main="Unemployment in Largest US Metro Areas in 2007", ylab="Unemployment Rate (%)", ylim=c(0, 8), names.arg=c("CHI", "LAX", "ATL", "NYC", "SFO", "PHI", "DAL", "HOU", "BOS", "MIA", "WSH"), cex.names=0.6)
+barplot(then2$Unemployment.Rate, col="green", main="Unemployment in Largest US Metro Areas in 2007", ylab="Unemployment Rate (%)", ylim=c(0, 8), names.arg=c("CHI", "LAX", "ATL", "NYC", "SFO", "PHI", "DAL", "HOU", "BOS", "MIA", "WSH"), cex.names=0.6)sp
